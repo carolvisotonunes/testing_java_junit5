@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
@@ -23,29 +24,31 @@ class IndexControllerTest {
     void index() {
         assertEquals("index", indexController.index());
         assertEquals("index", indexController.index(), "Wrong view returned");
-        assertEquals("index", indexController.index(), ()->"Another expensive message " +
+        assertEquals("index", indexController.index(), () -> "Another expensive message " +
                 "Make me only if you have to");
     }
 
     @DisplayName("Test Exception")
     @Test
     void oupsHandler() {
-        assertThrows(ValueNotFoundException.class, ()->
-            indexController.oopsHandler()
+        assertThrows(ValueNotFoundException.class, () ->
+                indexController.oopsHandler()
         );
     }
+
     @Disabled("Demo of timeout")
     @Test
-    void timeOut(){
+    void timeOut() {
         assertTimeout(Duration.ofMillis(100),
                 () -> {
                     Thread.sleep(5000);
                     System.out.println("I got here");
                 });
     }
+
     @Disabled("Demo of timeout")
     @Test
-    void timeOutPreemptively(){
+    void timeOutPreemptively() {
         assertTimeoutPreemptively(Duration.ofMillis(100),
                 () -> {
                     Thread.sleep(5000);
@@ -54,12 +57,50 @@ class IndexControllerTest {
     }
 
     @Test
-    void assumptionTrue(){
-       assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
+    void assumptionTrue() {
+        assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
     }
 
     @Test
-    void assumptionTrueAssumptionIsTrue(){
+    void assumptionTrueAssumptionIsTrue() {
         assumeTrue("GURU".equalsIgnoreCase("GURU"));
     }
+
+    @EnabledOnOs(OS.MAC)
+    @Test
+    void testMeOnMacOS() {
+
+    }
+
+    @EnabledOnOs({OS.WINDOWS})
+    @Test
+    void testMeOnWindows() {
+
+    }
+
+    @EnabledOnJre(JRE.JAVA_8)
+    @Test
+    void testMeOnJava8() {
+
+    }
+
+    @EnabledOnJre(JRE.JAVA_12)
+    @Test
+    void testMeOnMac12() {
+
+    }
+
+    @EnabledIfEnvironmentVariable(named = "USER", matches = "carolinenunes")
+    @Test
+    void tesIfUserCarolVNunes() {
+
+    }
+
+    @EnabledIfEnvironmentVariable(named = "USER", matches = "Fred")
+    @Test
+    void testIfUserFred() {
+
+    }
+
+
 }
