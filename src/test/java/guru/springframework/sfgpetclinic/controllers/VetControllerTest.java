@@ -8,6 +8,7 @@ import guru.springframework.sfgpetclinic.services.VetService;
 import guru.springframework.sfgpetclinic.services.map.SpecialityMapService;
 import guru.springframework.sfgpetclinic.services.map.VetMapService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
@@ -15,6 +16,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Tag("controllers")
 class VetControllerTest {
 
     VetService vetService;
@@ -38,7 +40,7 @@ class VetControllerTest {
         Model model = new ModelMapImpl();
         String view = vetController.listVets(model);
         assertThat("vets/index").isEqualTo(view);
-        Set modelAttibute = (Set) ((ModelMapImpl)model).getMap().get("vets");
-        assertThat(modelAttibute.size()).isEqualTo(2);
+        Set modelAttribute = (Set) ((ModelMapImpl)model).getMap().get("vets");
+        assertThat(modelAttribute.size()).isEqualTo(2);
     }
 }
