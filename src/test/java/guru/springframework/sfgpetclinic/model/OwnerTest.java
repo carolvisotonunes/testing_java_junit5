@@ -4,6 +4,8 @@ import guru.springframework.sfgpetclinic.ModelTest;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,4 +28,9 @@ class OwnerTest implements ModelTest {
         MatcherAssert.assertThat(owner.getCity(), Matchers.is("City"));
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"Spring", "Framework", "Guru"})
+    void valueSource(String value) {
+        System.out.println(value);
+    }
 }
