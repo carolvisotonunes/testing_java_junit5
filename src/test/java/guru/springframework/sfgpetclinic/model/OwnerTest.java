@@ -71,10 +71,11 @@ class OwnerTest implements ModelTest {
     void fromMethodTest(String stateName, int val1, int val2) {
         System.out.println(stateName +" = "+ val1 +" : "+ val2);
     }
+    //TODO check whats going on
 
-//    static Stream<Arguments> getArgs(){
-//        return Stream.of(Arguments.of("FL", 1,1),
-//                Arguments.of("OH", 2,2), Arguments.of("MI", 1,1));
-//
-//    }
+    static Stream<Arguments> getArgs(){
+        return Stream.of(Arguments.of("FL", 1,1),
+                Arguments.of("OH", 2,2), Arguments.of("MI", 1,1));
+
+    }
 }
