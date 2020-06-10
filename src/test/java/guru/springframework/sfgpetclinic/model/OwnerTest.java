@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
+import guru.springframework.sfgpetclinic.CostumArgsProvider;
 import guru.springframework.sfgpetclinic.ModelTest;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -71,11 +72,18 @@ class OwnerTest implements ModelTest {
     void fromMethodTest(String stateName, int val1, int val2) {
         System.out.println(stateName +" = "+ val1 +" : "+ val2);
     }
-    //TODO check whats going on
 
     static Stream<Arguments> getArgs(){
         return Stream.of(Arguments.of("FL", 1,1),
                 Arguments.of("OH", 2,2), Arguments.of("MI", 1,1));
 
+    }
+
+
+    @DisplayName("Costum Provider Test")
+    @ParameterizedTest(name = "{displayName} - [{index}] {argumentsWithNames}")
+    @ArgumentsSource(CostumArgsProvider.class)
+    void fromCostumProviderTest(String stateName, int val1, int val2) {
+        System.out.println(stateName +" = "+ val1 +" : "+ val2);
     }
 }
