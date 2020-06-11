@@ -1,4 +1,4 @@
-package guru.springframework.sfgpetclinic.junitextetions;
+package guru.springframework.sfgpetclinic.junitextentions;
 
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
@@ -7,9 +7,9 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
 
-public class TimingExtentions implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
+public class TimingExtention implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
 
-    private static final Logger logger = Logger.getLogger(TimingExtensions.class.getName());
+    private static final Logger logger = Logger.getLogger(TimingExtention.class.getName());
 
     private static final String START_TIME = "start time";
 
