@@ -1,37 +1,3 @@
-  Skip to content
-    Search or jump to…
-
-    Pull requests
-    Issues
-    Marketplace
-    Explore
-
-    @carolvisotonunes
-    Learn Git and GitHub without any code!
-    Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-    springframeworkguru
-    /
-    testing-java-junit5-ci
-    1
-    329
-    Code
-    Issues 0
-    Pull requests 0 Actions
-    Projects 0
-    Wiki
-    Security 0
-    Insights
-    testing-java-junit5-ci/.circleci/config.yml
-    @springframeworkguru springframeworkguru white space change to trigger build
-    60e2df5 on 12 Nov 2018
-    43 lines (33 sloc)  1.22 KB
-
-  # Java Maven CircleCI 2.0 configuration file
-  #
-  # Check https://circleci.com/docs/2.0/language-java/ for more details
-  #
   version: 2
   jobs:
     build:
